@@ -1,12 +1,14 @@
 require 'mina/git'
 require 'mina/deploy'
+require_relative 'support/files'
 require_relative 'ubuntu/setup'
 
-set :domain, '18.130.126.216'
-set :user, 'ubuntu' #ssh user
-set :identity_file, File.expand_path('~/.ssh/my_aws.pem')
 
-set :new_user, 'deploy' # user to be created
+set :domain, 'domain_or_ip'
+set :user, 'ubuntu' #ssh user
+# You can specify identity file in the ~/.ssh/config or put it below
+# set :identity_file, File.expand_path('~/.ssh/aws.pem')
+
 
 # This task is the environment that is loaded for all remote run commands, such as
 # `mina deploy` or `mina rake`.
