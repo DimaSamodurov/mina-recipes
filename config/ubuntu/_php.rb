@@ -7,8 +7,9 @@ namespace :ubuntu do
         sudo apt-get install -y php-fpm php-mysql
       BASH
 
-      remote_file '/etc/php/7.2/fpm/php.ini',
-           content: erb(File.join(__dir__, 'templates', '_etc_php_7.2_fpm_php.ini'))
+      remote_file '/etc/php/7.2/fpm/php.ini'
+      #remote_file '/etc/nginx/sites_available/default'
+
     end
   end
 end
