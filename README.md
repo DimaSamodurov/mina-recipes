@@ -1,4 +1,6 @@
-## Provision a server instance with Mina
+## Provision an Ubuntu instance with Mina
+
+Collection of scripts usually used with manual provisioning of small deployments. 
 
 ### How to use
 
@@ -8,11 +10,19 @@ Install mina
     
 Clone repository
 
-    git clone mina_recipes
-    cd mina_recipes
+    git clone mina-recipes
+    cd mina-recipes
 
 Then run
 
-    mina ubuntu:setup domain='ip_or_name' new_user='deploy'
+    export domain='ip_or_name'
+    mina ubuntu:add_user new_user='deploy'
+    export user=deploy
+    mina ubuntu:setup:rvm_ruby
     
+Run `mina -T` for the list of available tasks.
 See `config/deploy.rb` for available options and `config/ubuntu/setup.rb` for the list of recipes.
+
+## Testing
+
+ruby test/**/test_*.rb

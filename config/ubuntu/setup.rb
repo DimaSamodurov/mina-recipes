@@ -1,16 +1,12 @@
 Dir[File.join(__dir__, '_*.rb')].each { |file| require_relative file }
 
-def with_new_user(script)
-  new_user = fetch(:new_user)
-  return script if new_user.to_s.strip.empty?
-  "sudo su #{new_user} \n" + script
-end
-
 namespace :ubuntu do
-  task :setup do
-    invoke :'ubuntu:swap_on'
-    invoke :'ubuntu:deps'
-    invoke :'ubuntu:add_user', fetch(:new_user)
-    invoke :'ubuntu:rvm'
+  namespace :setup do
+    desc 'Prepare Ruby server from scratch using RVM'
+    task :rvm_ruby do
+      invoke :'ubuntu:swap_on'
+      invoke :'ubuntu:ror_deps'
+      invoke :'ubuntu:rvm:install'
+    end
   end
 end

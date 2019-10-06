@@ -1,3 +1,5 @@
+set :swap_size, ENV['swap_size'] || '2G'
+
 namespace :ubuntu do
   desc 'Enable swap'
   task :swap_on do
@@ -9,7 +11,7 @@ namespace :ubuntu do
       sudo swapon --show
 
       # Set up swap
-      sudo fallocate -l 1G /swapfile
+      sudo fallocate -l #{fetch(:swap_size)} /swapfile
       ls -lh /swapfile
       sudo chmod 600 /swapfile
       sudo mkswap /swapfile
