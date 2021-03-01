@@ -27,8 +27,12 @@ namespace :ubuntu do
         sudo apt-get update
         sudo apt-get -y install docker-ce docker-ce-cli containerd.io docker-compose
 
+        # Run as non root
+        sudo groupadd docker
+        sudo usermod -aG docker $USER
+
         # Verify that Docker Engine is installed correctly by running the hello-world image.
-        sudo docker run hello-world
+        docker run hello-world
       BASH
       command script
     end

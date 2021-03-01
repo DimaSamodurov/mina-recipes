@@ -1,4 +1,4 @@
-set :swap_size, ENV['swap_size'] || '2G'
+set :swap_size, ENV['swap_size'] || '4G'
 
 namespace :ubuntu do
   desc 'Enable swap'

@@ -4,7 +4,7 @@ require_relative 'support/files'
 require_relative 'ubuntu/setup'
 
 set :domain, ENV['domain']
-set :user, ENV['user'] || 'deploy' #ssh user
+set :user, ENV['user'] || 'ubuntu' #ssh user
 set :port, ENV['port'] || 22 #ssh port
 set :new_user, ENV['new_user']
 
@@ -18,5 +18,3 @@ task :remote_environment do
   # For those using RVM, use this to load an RVM version@gemset.
   # invoke :'rvm:use', 'ruby-1.9.3-p125@default'
 end
-
-
