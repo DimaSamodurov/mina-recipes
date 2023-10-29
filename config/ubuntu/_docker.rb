@@ -2,7 +2,6 @@ namespace :ubuntu do
   namespace :docker do
     desc 'Setup docker'
     task :install do
-      # command 'sudo apt-get update'
       script = <<~BASH
         # Script source: https://docs.docker.com/engine/install/ubuntu/
 
@@ -38,6 +37,3 @@ namespace :ubuntu do
     end
   end
 end
-
-
-

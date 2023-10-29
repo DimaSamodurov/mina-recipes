@@ -24,5 +24,13 @@ namespace :ubuntu do
         ruby -v
       BASH
     end
+
+    desc 'Update RVM wrapper required when updating Passenger'
+    task :update do
+      command <<~BASH
+        source ~/.rvm/scripts/rvm
+        rvm get stable && rvm reload && rvm repair all
+      BASH
+    end
   end
 end

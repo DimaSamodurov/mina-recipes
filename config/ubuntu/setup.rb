@@ -6,6 +6,7 @@ namespace :ubuntu do
     task :ruby_stack do
       invoke 'ubuntu:swap_on'
       invoke 'ubuntu:deps:install'
+      invoke 'ubuntu:github:enable'
       invoke 'ubuntu:docker:install'
       invoke 'ubuntu:rvm:install'
       invoke 'ubuntu:passenger:install'

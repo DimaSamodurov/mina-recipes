@@ -12,8 +12,7 @@ namespace :ubuntu do
         sudo apt-get install -y apt-transport-https ca-certificates
 
         # Add our APT repository
-        source /etc/lsb-release
-        sudo sh -c "echo deb https://oss-binaries.phusionpassenger.com/apt/passenger $DISTRIB_CODENAME main > \
+        sudo sh -c "echo deb https://oss-binaries.phusionpassenger.com/apt/passenger $(lsb_release -cs) main > \
           /etc/apt/sources.list.d/passenger.list"
         sudo apt-get update
 
